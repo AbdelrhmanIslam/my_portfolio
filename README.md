@@ -3,7 +3,6 @@
 Welcome to my personal **Portfolio Website**!  
 This project showcases my background, skills, certificates, books I’ve read, hobbies, and professional journey as a **developer**, **content creator**, and **cybersecurity enthusiast**.
 
-![Screenshot](home.jpg)
 
 ---
 
@@ -54,10 +53,8 @@ Visit the live version of my website here:
 ## 👨‍🎓 About Me
 
 I am **Abdelrhman Islam**, a student at the Faculty of Computer Science passionate about:
-- 🧑‍💻 Full-stack development
+- 🧑‍💻 Full-stack development with php
 - 🔐 Cybersecurity
-- 🎨 UI/UX design
-- 📈 Data analysis
 - 📚 Lifelong learning
 
 I’m also a **content creator**, reader, and space science explorer 🚀  
