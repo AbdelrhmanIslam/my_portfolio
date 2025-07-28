@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Abdelrhman Islam's Portfolio">
+<meta name="author" content="Abdelrhman Islam">
+<title>Abdelrhman Islam Portfolio</title>
+<link rel="icon" href=" icon.png ">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #1f242d;
+  color: #fff;
+  overflow-x: hidden;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+body::selection{
+  color: #171717;
+  background-color: rgb(0, 255, 255);
+}
+
+body.light-mode {
+  background-color: #60bdff5a;
+  color: #fe5100;
+}
+
+body.light-mode::selection{
+  color: rgb(255, 221, 0);
+  background-color: rgb(95, 90, 255);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 5%;
+  background: #0e1e2498;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgb(0, 223, 239);
+  backdrop-filter: blur(4px);
+  transition: 0.3s;
+}
+
+body.light-mode header {
+  background: #60bdffa0;
+  box-shadow: 0 2px 5px rgb(255, 98, 0);
+  backdrop-filter: blur(4px);
+}
+
+header .logo {
+  font-size: 24px;
+  color: #00eaff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+body.light-mode header .logo {
+  color: #ff5900;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.navbar a {
+  font-size: 14px;
+  color: #898989;
+  margin: 5px;
+  transition: .3s;
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+body.light-mode .navbar a {
+  color: #ff9253;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.navbar a.active {
+  color: #0ef;
+  background: transparent;
+}
+
+body.light-mode .navbar a.active{
+    color: #0090f7;
+    background: transparent;
+}
+
+.navbar a:hover {
+  color: #0ef;
+  text-shadow: 0 0 10px #ddf6ff;
+}
+
+body.light-mode .navbar a:hover{
+  color: #25a4ffe9;
+  text-shadow: 0 0 10px #0090f7ae;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+section {
+  padding: 80px 5% 50px;
+  min-height: 100vh;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #0ef;
+  transition: color 0.5s;
+}
+
+body.light-mode section h2 {
+  color: #0077cc;
+}
+
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  gap: 20px;
+}
+
+.home-content {
+  flex: 1;
+  min-width: 250px;
+}
+
+.home-content h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.home-content h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #0ef;
+  transition: color 0.5s;
+}
+
+body.light-mode .home-content h3 {
+  color: #0077cc;
+}
+
+.home-content h3 span {
+  color: #ff6f61;
+  border-right: none;
+  padding-right: 2px;
+}
+
+.home-content p {
+  font-size: 16px;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.home img {
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 20px;
+  box-shadow: 0 0 30px #0ef;
+}
+
+.home img:hover{
+    transform: scale(1.5);
+    box-shadow: 0 0 15px #0ef;
+    box-shadow: 0 0 30px #13fbff;
+    border: 3px solid aquamarine;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    filter: brightness(1.5);
+    -webkit-filter: brightness(1.5); 
+}
+
+body.light-mode .home img{
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 20px;
+  box-shadow: 0 0 30px #28a5ff;
+}
+
+body.light-mode .home img:hover{
+    box-shadow: 0 0 30px #004f87;
+    border: 3px solid #008df3;
+    border-radius: 10px;
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    filter: brightness(1.5);
+    -webkit-filter: brightness(1.5); 
+}
+
+.social-media a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  margin: 3px;
+  border: none;
+  border-radius: 50%;
+  color: #0ef;
+  transition: .3s;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+body.light-mode .social-media a{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  margin: 3px;
+  border: none;
+  border-radius: 50%;
+  color: #0077cc;
+  transition: .3s;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.social-media a:hover {
+  background: #0ef;
+  color: #fff;
+  transform: scale(1.2) rotate(10deg);
+}
+
+body.light-mode .social-media a:hover {
+  background: #0077cc;
+  color: #fff;
+  transform: scale(1.2) rotate(10deg);
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #0ef;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: .3s;
+  margin-top: 20px;
+}
+
+body.light-mode .btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #0077cc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: .3s;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #0ef;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #0ef;
+}
+
+body.light-mode .btn:hover {
+  background: #fff;
+  color: #0077cc;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #0095ff;
+}
+
+.skills-list, .hobbies-list, .books-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.skill, .hobby {
+  background: #333;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: .3s;
+  font-size: 14px;
+  border: none;
+}
+
+body.light-mode .skill, body.light-mode .hobby{
+  background: #ffaf60b8;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: .3s;
+  font-size: 14px;
+  border: none;
+}
+
+.skill:hover, .hobby:hover {
+  transform: scale(1.5) ;
+  box-shadow: 0 0 10px #0ef;
+  background-color: cyan;
+  color: #1f242d;
+  cursor: pointer;
+}
+
+body.light-mode .skill:hover, body.light-mode .hobby:hover{
+  transform: scale(1.5) ;
+  box-shadow: 0 0 10px rgb(252, 255, 54);
+  background-color: rgb(253, 154, 62);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.book {
+  text-align: center;
+  margin: 10px;
+} 
+
+section .link_of_books{
+  text-decoration: none;
+  color:rgba(255, 0, 0, 0.703);
+}
+
+section .link_of_books:hover{
+   color: #0ef;
+   cursor: pointer;
+}
+
+body.light-mode section .link_of_books{
+  text-decoration: none;
+  color: #fe5100;
+}
+
+body.light-mode section .link_of_books:hover{
+   color: #004b80;
+   cursor: pointer;
+}
+
+.book img {
+  width: 150px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: .3s;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgb(255, 0, 0);
+}
+
+body.light-mode .book img{
+  width: 150px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: .3s;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgb(255, 68, 0);
+}
+
+.book img:hover { 
+    transform: scale(1.5);
+    box-shadow: 0 0 30px #13fbff;
+    border: 3px solid aquamarine;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    filter: brightness(1.5);
+    -webkit-filter: brightness(1.5); 
+}
+
+body.light-mode .book img:hover{
+    transform: scale(1.5);
+    box-shadow: 0 0 10px #0093fc;
+    border: 3px solid #0093fc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    filter: brightness(1.5);
+    -webkit-filter: brightness(1.5); 
+}
+
+.book-title {
+  margin-top: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+}
+
+input, textarea {
+  padding: 8px;
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color:rgba(60, 57, 77, 0.809);
+  color: aqua;
+  border-radius: 7px;
+}
+
+body.light-mode input, body.light-mode textarea {
+  padding: 8px;
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color:#60bdffa0;
+  color: #004f87;
+  border-radius: 7px;
+}
+
+input::placeholder, textarea::placeholder{
+  color: aqua;
+}
+
+body.light-mode input::placeholder , body.light-mode textarea::placeholder{
+  color: #004f87;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+footer {
+  text-align: center;
+  padding: 8px 0;
+  background: linear-gradient(45deg, #0ef, #1f242d);
+  font-size: 14px;
+  color: #fff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+footer:hover {
+  background: linear-gradient(45deg, #1f242d, #0ef);
+  color: #0ef;
+}
+
+footer span {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff6f61, #0ef, #ff0, #f0f, #ff6f61);
+  background-size: 400%;
+  animation: worm 3s linear infinite, gradientShift 4s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  z-index: 9999;
+  background: linear-gradient(90deg, #0ef, #ff0, #f0f, #ff6f61, #0ef);
+  background-size: 300%;
+  animation: progressGradient 3s linear infinite;
+}
+
+@keyframes progressGradient {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+@keyframes worm {0% { left: -100%; } 50% { left: 0%; } 100% { left: 100%; }}
+@keyframes gradientShift {0% { background-position: 0% 50%; }50% { background-position: 100% 50%; }100% { background-position: 0% 50%; }}
+@media(max-width:768px) {.home-content{text-align:center;}.home{flex-direction:column;}.home img{order:-1;}}
+</style>
+
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<header>
+<a href="#home" class="logo">Portfolio</a>
+<nav class="navbar">
+<a href="#home" class="active">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#hobbies">Hobbies</a>
+<a href="#books">Books</a>
+<a href="#certificates">Certificates</a>
+<a href="#contact">Contact</a>
+</nav>
+<button class="toggle-btn" onclick="toggleMode()" id="toggleIcon">🌙</button>
+</header>
+
+<section id="home" class="home" data-aos="fade-down-right">
+<div class="home-content">
+<h1>Abdelrhman Islam</h1>
+<h3>I'm a <span id="typing-text"></span></h3>
+<p>Welcome to my Portfolio website ❤</p>
+<div class="social-media">
+<a href="https://github.com/AbdelrhmanIslam" target="_blank"><i class="fab fa-github"></i></a>
+<a href="https://linkedin.com/in/abdelrhman-islam-565747317" target="_blank"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.facebook.com/people/%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86-%D8%A7%D8%B3%D9%84%D8%A7%D9%85/pfbid02n9FzuPrb9LfJarbMHArbKxxUEzREgr5E3kpBRZHftDusmmuNqHP1KRe33fp1CTwal/" target="_blank"><i class="fab fa-facebook"></i></a>
+<a href="https://www.youtube.com/channel/UCSuSrTeBKb7AZaAhmb4lFsg" target="_blank"><i class="fab fa-youtube"></i></a>
+<a href="abdelrhman.islam04@email.com"><i class="fas fa-envelope"></i></a>
+</div>
+<a href="cv.pdf" class="btn" download>Download CV</a>
+</div>
+<img src="home.jpg" alt="Profile Photo" data-aos="fade-left">
+</section>
+
+<section id="about" data-aos="fade-right">
+<h2>About Me</h2>
+<p>
+I am a student at the Faculty of Computer Science, studying a variety of topics in programming and data I have experience working with programming languages
+such as Python, JavaScript, PHP, C#, C++, and Java, as well as front-end development with HTML,CSS and JS and backend with php
+I am also proficient in using Photoshop and Microsoft Office programs, with strong knowledge of Linux
+I speak Arabic as my native language, have a very good command of English, and basic proficiency in German
+Passionate about continuous learning and development across diverse fields including technology, health, and literature
+I am always eager to apply what I learn practically and continuously seek new challenges to enhance my technical and professional skills
+I believe that continuous learning is the key to success in the fast-evolving tech world
+</p>
+</section>
+
+<section id="skills" data-aos="flip-left">
+<h2>My Skills</h2>
+<div class="skills-list">
+<div class="skill">HTML5</div><div class="skill">CSS3</div><div class="skill">JavaScript</div><div class="skill">c++</div><div class="skill">php</div><div class="skill">Python</div><div class="skill">c#</div><div class="skill">java</div><div class="skill">MySQL</div><div class="skill">Git</div><div class="skill">GitHub</div><div class="skill">Bash Scripting</div>
+<div class="skill">R</div><div class="skill">Cloud Basics</div><div class="skill">Minitab</div><div class="skill">Microsoft Office</div><div class="skill">Adobe Photoshop & Premiere</div><div class="skill">Critical Thinking</div><div class="skill">Problem Solving</div><div class="skill">Time Management</div><div class="skill">Self-management</div><div class="skill">Writing</div><div class="skill">Presentation Skills</div><div class="skill">Research & Analysis</div>
+<div class="skill">Work Under Pressure</div><div class="skill">Customer Focus</div><div class="skill">Cultural Awareness</div><div class="skill">Negotiation Skills</div><div class="skill">Creativity & Development</div><div class="skill">Leadership</div><div class="skill">Arabic – Native</div><div class="skill">English – Intermediate</div><div class="skill">German – Basic</div><div class="skill">Hebrew – Limited knowledge</div>
+<div class="skill">Decision Making</div><div class="skill">Management Skills</div><div class="skill">Attention to Detail</div><div class="skill">Emotional Intelligence</div><div class="skill">Adaptability</div><div class="skill">Conflict Resolution</div><div class="skill">Interpersonal Skills</div><div class="skill">Learning Agility</div><div class="skill">Learning Agility</div><div class="skill">Growth Mindset</div>
+<div class="skill">Speak English Professionally</div><div class="skill"> Write Professional Emails in English</div><div class="skill">Build Professional ePortfolio in English</div>
+</div>
+</section>
+
+<section id="hobbies" data-aos="zoom-in">
+<h2>Hobbies</h2>
+<div class="hobbies-list">
+<div class="hobby">Reading</div><div class="hobby">writing</div><div class="hobby">Gaming</div>
+<div class="hobby">Exploring Space Science</div><div class="hobby">Watching Movies</div><div class="hobby">Attending Conferences</div>
+<div class="hobby">Traveling</div><div class="hobby">Coding</div><div class="hobby">Cooking</div>
+<div class="hobby">Debating</div><div class="hobby">Event Organizing</div><div class="hobby">Walking</div>
+<div class="hobby">Language Learning</div><div class="hobby">Volunteering</div><div class="hobby">Storytelling</div>
+<div class="hobby">Cultural Exchange</div><div class="hobby">Public Speaking</div><div class="hobby">Watching Documentaries</div>
+<div class="hobby">Educational Podcast Listening</div><div class="hobby">Building Personal Knowledge Base</div><div class="hobby">Attending Online Webinars</div>
+</div>
+</section>
+
+<section id="books" data-aos="fade-left"> 
+<h2>Books I've Read</h2>
+<div class="books-list">
+<div class="book"> <a href="https://github.com/AbdelrhmanIslam/cyber_books" target="_blank" class="link_of_books" > <img src="Linux Basics for Hackers.PNG" alt="linux Basics for Hackers"> <div class="book-title">Linux Basics for Hackers</div> </a> </div>
+<div class="book"> <a href="https://github.com/AbdelrhmanIslam/cyber_books" target="_blank" class="link_of_books" > <img src="The Linux Command Line.PNG" alt="DThe Linux Command Line"> <div class="book-title">The Linux Command Line</div> </a> </div>
+<div class="book"> <a href="https://github.com/AbdelrhmanIslam/cyber_books" target="_blank" class="link_of_books" > <img src="Social Engineering_The Science of Human Hacking.PNG" alt="Social Engineering the Science of Human Hacking<"> <div class="book-title">Science of Human Hacking</div> </a> </div>
+<div class="book"> <a href="https://github.com/AbdelrhmanIslam/cyber_books" target="_blank" class="link_of_books"> <img src="Ethical Hacking.PNG" alt="Ethical Hacking"> <div class="book-title">Ethical Hacking</div> </a> </div>
+<div class="book"> <a href="https://github.com/AbdelrhmanIslam/cyber_books" target="_blank" class="link_of_books" > <img src="Ghost in the wires.PNG" alt="Ghost in the wires"> <div class="book-title">Ghost in the wires</div> </a>  </div>
+<div class="book"> <a href="https://github.com/AbdelrhmanIslam/cyber_books" target="_blank" class="link_of_books" > <img src="Black Hat.PNG" alt="Black Hat"> <div class="book-title">Black Hat</div> </a>  </div>
+<div class="book"> <a href="https://github.com/AbdelrhmanIslam/cyber_books" target="_blank" class="link_of_books" > <img src="Social Engineering The Art of Human Hacking.PNG" alt="Social Engineering The Art of Human Hacking"> <div class="book-title">The Art of Human Hacking</div> </a>  </div>
+</div>
+</section>
+
+<section id="certificates" data-aos="flip-right">
+<h2>Certificates</h2>
+<p>Check out my <a href="https://drive.google.com/drive/folders/1oLRubxXwuFTOrw9JsEYpgI075r_eKdnz?usp=sharing" target="_blank" class="btn">All certificates Here</a> </p>
+</section>
+
+<section id="contact" data-aos="fade-up">
+<h2>Contact Me</h2>
+<form>
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea rows="5" placeholder="Your Message" required></textarea>
+<button type="submit" class="btn">Send</button>
+</form>
+</section>
+
+<footer>&copy; 2025 Abdelrhman Islam <span></span></footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({ duration: 1000, once: true });
+const links = document.querySelectorAll('.navbar a');
+window.addEventListener('scroll', () => {
+  let fromTop = window.scrollY + 100;
+  links.forEach(link => {
+    let section = document.querySelector(link.getAttribute('href'));
+    if(section && section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop){
+      links.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    }
+  });
+  const scrollProgress = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progress-bar').style.width = scrollProgress + '%';
+});
+const typingText = document.getElementById('typing-text');
+const words = ['CIB bank intern','NTI intern','cybersecurity engineer','Web Developer & Designer', 'Content Creator','C++ Developer'];
+let wordIndex = 0, charIndex = 0;
+function type() {
+  if(charIndex < words[wordIndex].length) {
+    typingText.textContent += words[wordIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, 100);
+  } else {
+    setTimeout(erase, 2000);
+  }
+}
+function erase() {
+  if(charIndex > 0) {
+    typingText.textContent = words[wordIndex].substring(0, charIndex-1);
+    charIndex--;
+    setTimeout(erase, 50);
+  } else {
+    wordIndex = (wordIndex+1)%words.length;
+    setTimeout(type, 500);
+  }
+}
+type();
+function toggleMode() {
+  document.body.classList.toggle("light-mode");
+  const icon = document.getElementById("toggleIcon");
+  if(document.body.classList.contains("light-mode")){
+    icon.textContent = "🌞";
+    icon.style.transform = "rotate(360deg)";
+  } else {
+    icon.textContent = "🌙";
+    icon.style.transform = "rotate(0deg)";
+  }
+}
+</script>
+
+</body>
+</html>
